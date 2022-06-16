@@ -19,6 +19,9 @@ install_gems
 
 echo "--- 🔬 Testing"
 set +e
+
+export BUILDKITE_ANALYTICS_DEBUG_ENABLED=1
+
 bundle exec fastlane test_without_building name:WordPressUnitTests try_count:3
 TESTS_EXIT_STATUS=$?
 set -e
