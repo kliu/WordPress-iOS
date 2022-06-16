@@ -1,5 +1,11 @@
 #!/bin/bash -eu
 
+echo "--- Check BUILDKITE_ANALYTICS_TOKEN"
+if [ -z "$BUILDKITE_ANALYTICS_TOKEN" ]; then
+  echo 'No BUILDKITE_ANALYTICS_TOKEN?!'
+  exit 1
+fi
+
 echo "--- 📦 Downloading Build Artifacts"
 download_artifact build-products.tar
 tar -xf build-products.tar
